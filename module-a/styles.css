@@ -381,7 +381,7 @@ button {
 
 .footer {
     padding: 8rem 0;
-    background: var(--color-background);
+    background: var(--color-accent-primary);
 }
 
 .footer__content {

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты поиска</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* Стили для страницы */
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .filters select {
+            padding: 1rem 2rem;
+            border-radius: 0.8rem;
+            border: 0.1rem solid var(--color-text-secondary);
+            font-size: 1.6rem;
+        }
+
+        .hotel-card {
+            background: var(--color-accent-secondary);
+            padding: 2rem;
+            border-radius: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .hotel-card img {
+            width: 15rem;
+            height: 10rem;
+            object-fit: cover;
+            border-radius: 1.2rem;
+        }
+
+        .hotel-details {
+            flex-grow: 1;
+        }
+
+        .hotel-details p {
+            font-size: 1.6rem;
+            color: var(--color-text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .rating {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: green;
+        }
+
+        .amenities {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .amenities img {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .actions button {
+            background-color: var(--color-background);
+            color: var(--color-white);
+            border: none;
+            padding: 0.8rem 1.6rem;
+            border-radius: 0.8rem;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        .actions button:hover {
+            background-color: #0049cc;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pagination button {
+            background-color: var(--color-background);
+            color: var(--color-white);
+            border: none;
+            padding: 1rem 1.6rem;
+            border-radius: 0.8rem;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        .pagination button:hover {
+            background-color: #0049cc;
+        }
+
+        .pagination .active {
+            background-color: #0049cc;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header__content">
+            <div class="logo">
+                <a href="/">
+                    <svg
+                            width="120"
+                            height="40"
+                            viewBox="0 0 120 40"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M20 5L35 20L20 35L5 20L20 5Z" fill="#FF5A5F"/>
+                        <path
+                                d="M45 15H50C52.7614 15 55 17.2386 55 20C55 22.7614 52.7614 25 50 25H45V15Z"
+                                fill="#FF5A5F"
+                        />
+                        <path d="M60 15H75V20H60V15Z" fill="#333333"/>
+                        <path d="M60 20H70V25H60V20Z" fill="#333333"/>
+                        <path d="M80 15H95V17.5H80V15Z" fill="#333333"/>
+                        <path d="M80 20H95V22.5H80V20Z" fill="#333333"/>
+                        <path d="M80 25H95V27.5H80V25Z" fill="#333333"/>
+                    </svg>
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Поиск</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Войти</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Личный кабинет</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Избранное</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Бронирования</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Мои заказы</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Уведомления</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-primary">Задать вопрос</a>
+                    </li>
+                </ul>
+                <div class="nav-list">
+                    <a href="tel:88007775577" class="nav-link phone-link">
+                        8-800-777-55-77
+                    </a>
+                    <button>
+                        задать вопрос
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section>
+        <div class="container">
+            <!-- Форма поиска -->
+            <h2 class="section-title">Поиск отелей</h2>
+            <form class="filters">
+                <div>
+                    <input type="text" placeholder="Направление/город, страна">
+                    <input type="text" placeholder="Даты заезда-выезда">
+                    <input type="text" placeholder="Количество гостей">
+                </div>
+                <button class="button-filled">Найти</button>
+            </form>
+
+            <!-- Фильтры -->
+            <div class="filters">
+                <select>
+                    <option value="list">Списком</option>
+                    <option value="map">На карте</option>
+                </select>
+                <select>
+                    <option value="price-asc">Цена (по возрастанию)</option>
+                    <option value="price-desc">Цена (по убыванию)</option>
+                </select>
+                <select>
+                    <option value="stars-5">5 звезд</option>
+                    <option value="stars-4">4 звезды</option>
+                    <option value="stars-3">3 звезды</option>
+                </select>
+            </div>
+
+            <!-- Результаты поиска -->
+            <div class="hotels">
+                <div class="hotel-card">
+                    <img src="https://placehold.co/150x100" alt="Отель">
+                    <div class="hotel-details">
+                        <p><strong>Страна:</strong> Россия | <strong>Город:</strong> Москва | <strong>Район:</strong> ЦАО</p>
+                        <p><strong>Описание:</strong> Роскошный отель в центре города</p>
+                        <p><strong>Количество звезд:</strong> ★★★★★</p>
+                        <p><strong>Адрес:</strong> ул. Тверская, 1, Москва</p>
+                        <p><strong>Удаленность от центра:</strong> 0.5 км</p>
+                        <p><strong>Рейтинг:</strong> <span class="rating">9.5/10</span></p>
+                        <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+                        <p><strong>Цена за ночь:</strong> от 5000 ₽</p>
+                        <div class="amenities">
+                            <img src="https://placehold.co/20" alt="Wi-Fi">
+                            <img src="https://placehold.co/20" alt="Парковка">
+                            <img src="https://placehold.co/20" alt="Бассейн">
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="button-filled">Выбрать номер</button>
+                    </div>
+                </div>
+
+                <!-- Повторяем карточки для других отелей -->
+            </div>
+
+            <!-- Пагинация -->
+            <div class="pagination">
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <ul class="footer__list">
+                <li class="footer__item">
+                    <a href="">8-800-777-55-77</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">hotel@hotel.ru</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">Клиентам</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">Партнерам</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">О нас</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">Контакты</a>
+                </li>
+            </ul>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Поиск</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Войти</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Личный кабинет</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Избранное</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Бронирования</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Мои заказы</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Уведомления</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-list">
+                    <a href="tel:88007775577" class="nav-link phone-link">
+                        8-800-777-55-77
+                    </a>
+                    <button>
+                        задать вопрос
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

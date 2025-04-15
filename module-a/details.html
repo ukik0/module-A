@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка отеля</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* Стили для страницы */
+        .hotel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .hotel-header h1 {
+            font-size: 3.6rem;
+            color: var(--color-text-primary);
+        }
+
+        .hotel-header .rating {
+            font-size: 2rem;
+            font-weight: bold;
+            color: green;
+        }
+
+        .hotel-images {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hotel-images img {
+            width: 20rem;
+            height: 15rem;
+            object-fit: cover;
+            border-radius: 1.2rem;
+        }
+
+        .hotel-info {
+            background: var(--color-accent-secondary);
+            padding: 2rem;
+            border-radius: 1.2rem;
+        }
+
+        .hotel-info p {
+            font-size: 1.6rem;
+            color: var(--color-text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .hotel-info .stars {
+            font-size: 2rem;
+            color: gold;
+        }
+
+        .hotel-info .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-text-primary);
+        }
+
+        .hotel-info .actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hotel-info .actions button {
+            background-color: var(--color-background);
+            color: var(--color-white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.8rem;
+            cursor: pointer;
+            font-size: 1.6rem;
+        }
+
+        .hotel-info .actions button:hover {
+            background-color: #0049cc;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header__content">
+            <div class="logo">
+                <a href="/">
+                    <svg
+                            width="120"
+                            height="40"
+                            viewBox="0 0 120 40"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M20 5L35 20L20 35L5 20L20 5Z" fill="#FF5A5F"/>
+                        <path
+                                d="M45 15H50C52.7614 15 55 17.2386 55 20C55 22.7614 52.7614 25 50 25H45V15Z"
+                                fill="#FF5A5F"
+                        />
+                        <path d="M60 15H75V20H60V15Z" fill="#333333"/>
+                        <path d="M60 20H70V25H60V20Z" fill="#333333"/>
+                        <path d="M80 15H95V17.5H80V15Z" fill="#333333"/>
+                        <path d="M80 20H95V22.5H80V20Z" fill="#333333"/>
+                        <path d="M80 25H95V27.5H80V25Z" fill="#333333"/>
+                    </svg>
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Поиск</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Войти</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Личный кабинет</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Избранное</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Бронирования</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Мои заказы</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Уведомления</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-primary">Задать вопрос</a>
+                    </li>
+                </ul>
+                <div class="nav-list">
+                    <a href="tel:88007775577" class="nav-link phone-link">
+                        8-800-777-55-77
+                    </a>
+                    <button>
+                        задать вопрос
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section>
+        <div class="container">
+            <!-- Заголовок и рейтинг -->
+            <div class="hotel-header">
+                <h1>Отель Москва</h1>
+                <span class="rating">9.5/10</span>
+            </div>
+
+            <!-- Фотографии отеля -->
+            <div class="hotel-images">
+                <img src="https://placehold.co/200x150" alt="Отель фото 1">
+                <img src="https://placehold.co/200x150" alt="Отель фото 2">
+                <img src="https://placehold.co/200x150" alt="Отель фото 3">
+            </div>
+
+            <!-- Информация об отеле -->
+            <div class="hotel-info">
+                <p><strong>Вид отеля:</strong> Гостиница</p>
+                <p><strong>Контактный номер телефона:</strong> +7 (495) 123-45-67</p>
+                <p><strong>E-mail:</strong> moscow-hotel@example.com</p>
+                <p><strong>Дополнительная информация:</strong> Роскошный отель в центре города с видом на Кремль.</p>
+                <p><strong>Минимальная стоимость номера:</strong> <span class="price">от 5000 ₽</span></p>
+                <p><strong>Количество звезд:</strong> <span class="stars">★★★★★</span></p>
+                <p><strong>Рейтинг по 10-балльной шкале:</strong> 9.5/10</p>
+
+                <!-- Действия -->
+                <div class="actions">
+                    <button class="button-filled">Забронировать</button>
+                    <button class="button-filled">Добавить в избранное</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <ul class="footer__list">
+                <li class="footer__item">
+                    <a href="">8-800-777-55-77</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">hotel@hotel.ru</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">Клиентам</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">Партнерам</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">О нас</a>
+                </li>
+                <li class="footer__item">
+                    <a href="">Контакты</a>
+                </li>
+            </ul>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Поиск</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Войти</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Личный кабинет</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Избранное</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Бронирования</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Мои заказы</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Уведомления</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-list">
+                    <a href="tel:88007775577" class="nav-link phone-link">
+                        8-800-777-55-77
+                    </a>
+                    <button>
+                        задать вопрос
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
